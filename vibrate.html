@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>test</title>
+    <style>
+      .slider {height:5em;}
+      .slider div { height:100% }
+      .slider .cell {
+      border-color: gray;
+      border-style: solid;
+      border-width: 1px 1px 1px 0px;
+      float:left;
+      }
+      .slider .cell:first-child { border-left-width: 1px}
+      .slider > .cell0 {width: 20%;}.cell0 > div{background-color:#FF0D00}
+      .slider >.cell1 {width: 15%;}.cell1 > div{background-color:#FF2300}
+      .slider >.cell2 {width: 15%;}.cell2 > div{background-color:#CB009E}
+      .slider .cell3 {width: 15%;}.cell3 > div{background-color:#D2008D}
+      .slider .cell4 {width: 15%;}.cell4 > div{background-color:#FF8E00}
+      .slider .cell5 {width: 10%;}.cell5 > div{background-color:#B1F400}
+      .slider .cell6 {width: 10%;}.cell6 > div{background-color:#00D41A}
+      .cell > div {width:0%;}
+      #result {font-size: 3em;}
+      * {
+      box-sizing: border-box;
+      text-size-adjust: none;
+      -webkit-box-sizing: border-box;
+      -webkit-text-size-adjust: none;
+      -moz-box-sizing: border-box;
+      -moz-text-size-adjust: none;
+      }
+    </style>
+  </head>
+<body>
+  <div style="padding:1em; width:50%;">
+    <div id="slider" class="slider">
+      <div class="cell cell0"><div>&nbsp;</div></div>
+      <div class="cell cell1"><div>&nbsp;</div></div>
+      <div class="cell cell2"><div>&nbsp;</div></div>
+      <div class="cell cell3"><div>&nbsp;</div></div>
+      <div class="cell cell4"><div>&nbsp;</div></div>
+      <div class="cell cell5"><div>&nbsp;</div></div>
+      <div class="cell cell6"><div>&nbsp;</div></div>
+    </div>
+  </div>
+  <div id="result"></div>
+  <script src="vibrate.js"></script>
+  <script src="http://yutaro-ihara.github.com/slider-without-html5-range/slider.js"></script>
+  <script>
+    var recentNum = 0;
+    slider.init(document.getElementById("slider"), function(n){
+      if (recentNum != n) {
+        vibrate.on(n);
+        recentNum = n;
+      }
+    },1);
+  </script>
+</body>
+</html>
